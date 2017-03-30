@@ -3,6 +3,8 @@
  */
 import { Component, ViewEncapsulation } from '@angular/core';
 
+import 'style-loader!css-loader!less-loader!font-awesome-webpack/font-awesome-styles.loader!font-awesome-webpack/font-awesome.config.js';
+
 import { AppState } from './app.service';
 
 /*
@@ -42,6 +44,8 @@ import { AppState } from './app.service';
       </span>
     </nav>
 
+    <side-bar></side-bar>
+    
     <main>
       <router-outlet></router-outlet>
     </main>

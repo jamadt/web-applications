@@ -9,6 +9,7 @@ const helpers = require('./helpers');
  * Webpack Plugins
  */
 // problem with copy-webpack-plugin
+const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 const AssetsPlugin = require('assets-webpack-plugin');
 const NormalModuleReplacementPlugin = require('webpack/lib/NormalModuleReplacementPlugin');
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
@@ -128,6 +129,13 @@ module.exports = function (options) {
           test: /\.css$/,
           use: ['to-string-loader', 'css-loader']
         },
+
+        {test: /\.less$/, loader: "style!css!less"},
+        // the url-loader uses DataUrls.
+        // the file-loader emits files.
+        { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&mimetype=application/font-woff" },
+        { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" },
+        { test: /bootstrap\/dist\/js\/umd\//, loader: 'imports?jQuery=jquery' },
 
         /* Raw loader support for *.html
          * Returns file content as string
@@ -304,6 +312,14 @@ module.exports = function (options) {
         /facade(\\|\/)math/,
         helpers.root('node_modules/@angular/core/src/facade/math.js')
       ),
+
+      new ProvidePlugin({    // <added>
+        jQuery: 'jquery',
+        $: 'jquery',
+        jquery: 'jquery'   // </added>
+      }),
+
+
     ],
 
     /*
