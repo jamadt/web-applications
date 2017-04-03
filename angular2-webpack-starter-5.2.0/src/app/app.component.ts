@@ -18,9 +18,9 @@ import { AppState } from './app.service';
     './app.component.css'
   ],
   template: `
-    <nav>
+    <!-- <nav>
       <span>
-        <a [routerLink]=" ['./'] ">
+        <a >
           Index
         </a>
       </span>
@@ -42,14 +42,20 @@ import { AppState } from './app.service';
           About
         </a>
       </span>
-    </nav>
+    </nav> -->
 
     <side-bar></side-bar>
     
+    <topnav-bar></topnav-bar>
+    
     <main>
-      <router-outlet></router-outlet>
+      <!-- page content -->
+      <div class="right_col" role="main">
+        <router-outlet></router-outlet>
+      </div>
     </main>
 
+    <!--
     <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
 
     <footer>
@@ -60,6 +66,7 @@ import { AppState } from './app.service';
         </a>
       </div>
     </footer>
+    -->
   `
 })
 export class AppComponent {

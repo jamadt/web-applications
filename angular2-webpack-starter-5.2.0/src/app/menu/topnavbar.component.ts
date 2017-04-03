@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   providers: [
   ],
   // Our list of styles in our component. We may add more to compose many styles together
-  styleUrls: [ '../app.style.css' ],
+  //styleUrls: [ '../app.component.css' ],
   // Every Angular template is first compiled by the browser before Angular runs it's compiler
   templateUrl: './topnavbar.component.html'
 })
@@ -21,7 +21,7 @@ export class TopNavBar {
         var target = event.srcElement.id;
         var body = $('body');
         var menu = $('#sidebar-menu');
-        
+
         // toggle small or large menu
         if (body.hasClass('nav-md')) {
             menu.find('li.active ul').hide();
@@ -33,14 +33,14 @@ export class TopNavBar {
         body.toggleClass('nav-md nav-sm');
 
     }
-  
+
 
   ngOnInit() {
     console.log('hello `topnavbar` component');
   }
 
   ngAfterViewInit(){
-     
+
   }
- 
+
 }

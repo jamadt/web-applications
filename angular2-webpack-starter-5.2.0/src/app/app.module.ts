@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { Sidebar } from './menu/sidebar.component';
+import { TopNavBar } from './menu/topnavbar.component';
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
@@ -40,6 +41,7 @@ type StoreType = {
   declarations: [
     AppComponent,
     Sidebar,
+    TopNavBar,
     AboutComponent,
     HomeComponent,
     NoContentComponent,
